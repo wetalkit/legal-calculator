@@ -28,6 +28,7 @@ class ProceduresController extends Controller
                     'var' => $item->name,
                     'type' => $item->type,
                     'attributes' => $item->options,
+	                'is_mandatory' => $item->is_mandatory,
                     'comment' => $item->comments,
                 ];
             }
@@ -39,15 +40,13 @@ class ProceduresController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage
-     *
-     * @return Response
+     * Show
+     * 
+     * @param  Request $request [description]
+     * @param  [type]  $id      [description]
+     * 
+     * @return [type]           [description]
      */
-    public function store()
-    {
-        //
-    }
-
     public function show(Request $request, $id)
     {
         $response = [];
@@ -60,16 +59,28 @@ class ProceduresController extends Controller
             'title' => $procedure->name
         ];
 
-        foreach ($procedure->items as $item_key => $item) {
+        foreach ($procedure->items as $item_key => $item) {        	
             $data['items'][] = [
                 'name' => $item->label,
                 'var' => $item->name,
                 'type' => $item->type,
                 'attributes' => $item->options,
+                'is_mandatory' => $item->is_mandatory,
                 'comment' => $item->comments,
             ];
         }
 
         return response()->json($data);
+    }
+
+    /**
+     * Calculate
+     * 
+     * @param  Request $request [description]
+     * 
+     * @return [type]           [description]
+     */
+    public function calculate(Request $request) {
+
     }
 }
