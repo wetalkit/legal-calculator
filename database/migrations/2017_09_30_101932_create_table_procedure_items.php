@@ -21,6 +21,7 @@ class CreateTableProcedureItems extends Migration
             $table->tinyInteger('type');
             $table->text('options');
             $table->text('comments');
+            $table->boolean('is_mandatory')->default(0);
             $table->timestamps();
             $table->foreign('procedure_id')
                 ->references('id')
