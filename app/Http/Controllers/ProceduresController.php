@@ -8,45 +8,68 @@ use App\Procedure;
 class ProceduresController extends Controller
 {
     /**
-	 * Display a listing of the resource
-	 *
-	 * @return Response
-	 */
-	public function index()
-	{
+     * Display a listing of the resource
+     *
+     * @return Response
+     */
+    public function index()
+    {
+        $response = [];
+        $procedures = Procedure::all();
 
-		$response = [];
-		$procedures = Procedure::all();
+        foreach ($procedures as $procedeure_key => $procedure) {
+            $data = [
+                'title' => $procedure->name
+            ];
 
-		foreach ($procedures as $procedeure_key => $procedure) {
+            foreach ($procedure->items as $item_key => $item) {
+                $data['items'][] = [
+                    'name' => $item->label,
+                    'var' => $item->name,
+                    'type' => $item->type,
+                    'attributes' => $item->options,
+                    'comment' => $item->comments,
+                ];
+            }
 
-			$data = [
-				'title' => $procedure->name
-			];
+            $response['services'][] = $data;
+        }
 
-			foreach ($procedure->items as $item_key => $item) {
-				$data['items'][] = [
-					'name' => $item->label,
-					'var' => $item->name,
-					'type' => $item->type,
-					'attributes' => $item->options,
-					'comment' => $item->comments,
-				];
-			}
+        return response()->json($response);
+    }
 
-			$response['services'][] = $data;
-		}
+    /**
+     * Store a newly created resource in storage
+     *
+     * @return Response
+     */
+    public function store()
+    {
+        //
+    }
 
-		return response()->json($response);
-	}
+    public function show(Request $request, $id)
+    {
+        $response = [];
 
-	/**
-	 * Store a newly created resource in storage
-	 *
-	 * @return Response
-	 */
-	public function store()
-	{
-	  //
-	}
+        if (!$procedure = Procedure::find($id)) {
+            return response()->json([]);
+        }
+
+        $data = [
+            'title' => $procedure->name
+        ];
+
+        foreach ($procedure->items as $item_key => $item) {
+            $data['items'][] = [
+                'name' => $item->label,
+                'var' => $item->name,
+                'type' => $item->type,
+                'attributes' => $item->options,
+                'comment' => $item->comments,
+            ];
+        }
+
+        return response()->json($data);
+    }
 }
