@@ -9,7 +9,7 @@ class Procedure extends Model
     protected $table = "procedures";
 
     /**
-     * Formuls
+     * Formulas
      * 
      * @return Illuminate\Database\Eloquent\Relations\HasOne
      */
