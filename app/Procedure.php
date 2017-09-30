@@ -8,6 +8,7 @@ class Procedure extends Model
 {
     protected $table = "procedures";
 	protected $fillable = ['name'];
+    public $timestamps = true;
 
     /**
      * Formulas

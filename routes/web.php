@@ -11,11 +11,8 @@
 |
 */
 
-Route::resource('procedures', 'ProceduresController');
-
-Route::get('/', function () {
-	return view('welcome');
-});
+Route::resource('/', 'WelcomeController')->only(['index']);
+Route::get('/getItemsByProcedure/', 'WelcomeController@getItemsByProcedure')->name('get_items');
 
 Auth::routes();
 
