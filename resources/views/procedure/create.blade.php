@@ -85,8 +85,8 @@
                             </td>
                             <td>
                                 <select class="form-control" id="new-item-type">
-                                    <option value="0">Text</option>
-                                    <option value="1">Dropdown</option>
+                                    <option value="{{ \App\ProcedureItem::ITEM_TEXT  }}">Text</option>
+                                    <option value="{{ \App\ProcedureItem::ITEM_SELECT }}">Dropdown</option>
                                 </select>
                             </td>
                             <td>

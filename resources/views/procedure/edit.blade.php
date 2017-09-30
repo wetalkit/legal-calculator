@@ -51,8 +51,8 @@
                                             </td>
                                             <td>
                                                 <select class="form-control" name="new-item-type[]" id="new-item-type[]">
-                                                    <option value="0" {{ ($item->type == 0) ? "selected" : "" }}>Text</option>
-                                                    <option value="1" {{ ($item->type == 1) ? "selected" : "" }}>Dropdown</option>
+                                                    <option value="0" {{ ($item->type == \App\ProcedureItem::ITEM_TEXT) ? "selected" : "" }}>Text</option>
+                                                    <option value="1" {{ ($item->type == \App\ProcedureItem::ITEM_SELECT ) ? "selected" : "" }}>Dropdown</option>
                                                 </select>
                                             </td>
                                             <td>
@@ -116,8 +116,8 @@
                                 </td>
                                 <td>
                                     <select class="form-control" id="new-item-type">
-                                        <option value="0">Text</option>
-                                        <option value="1">Dropdown</option>
+                                        <option value="{{ \App\ProcedureItem::ITEM_TEXT  }}">Text</option>
+                                        <option value="{{ \App\ProcedureItem::ITEM_SELECT  }}">Dropdown</option>
                                     </select>
                                 </td>
                                 <td>

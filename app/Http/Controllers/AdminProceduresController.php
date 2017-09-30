@@ -56,16 +56,29 @@ class AdminProceduresController extends Controller
 				'name' => $request['name'],
 			]);
 			for($i=0;$i<count($request['new-item-name']); $i++){
+				$options = "";
+				switch($request['new-item-type'][$i]){
+					case ProcedureItem::ITEM_TEXT:
+						$options = $request['new-item-options'][$i];
+						break;
+					case ProcedureItem::ITEM_SELECT:
+						$options_split = preg_split("/\s+/", $request['new-item-options'][$i]);
+//						foreach($options_split as $option_split) {
+//							$option =
+//						}
+						$options = "{" . '' . "}";
+						break;
+				}
 				$procedureItem = ProcedureItem::create([
 					'procedure_id' => $procedure->id,
 					'label' => $request['new-item-label'][$i],
 					'name' => $request['new-item-name'][$i],
 					'type' => $request['new-item-type'][$i],
-					'options' => $request['new-item-options'][$i],
+					'options' => $options,
 					'comments' => $request['new-item-comments'][$i],
 				]);
 			}
-			Session::flash('status', 'Successfully created procedure!');
+			Session::flash('status', 'Successfully created procedure!'.var_export(preg_split("/\s+/", $request['new-item-options'][0]),true));
 			return Redirect::to('admin/procedure');
 		}
 	}
@@ -118,12 +131,21 @@ class AdminProceduresController extends Controller
 				$item->delete();
 			}
 			for($i=0;$i<count($request['new-item-name']); $i++){
+				$options = "";
+				switch($request['new-item-type'][$i]){
+					case ProcedureItem::ITEM_TEXT:
+						$options = $request['new-item-options'][$i];
+						break;
+					case ProcedureItem::ITEM_SELECT:
+						$options = $request['new-item-options'][$i];
+						break;
+				}
 				$procedureItem = ProcedureItem::create([
 					'procedure_id' => $procedure->id,
 					'label' => $request['new-item-label'][$i],
 					'name' => $request['new-item-name'][$i],
 					'type' => $request['new-item-type'][$i],
-					'options' => $request['new-item-options'][$i],
+					'options' => $options,
 					'comments' => $request['new-item-comments'][$i],
 				]);
 			}
