@@ -9,13 +9,23 @@ class Procedure extends Model
     protected $table = "procedures";
 	protected $fillable = ['name'];
 
+    /**
+     * Formulas
+     * 
+     * @return Illuminate\Database\Eloquent\Relations\HasMany
+     */
     public function formulas()
     {
-        return $this->hasOne(ProcedureFormula::class);
+        return $this->hasMany(ProcedureFormula::class);
     }
 
+    /**
+     * Items
+     * 
+     * @return Illuminate\Database\Eloquent\Relations\HasMany
+     */
     public function items()
     {
-        return $this->hasOne(ProcedureItem::class);
+        return $this->hasMany(ProcedureItem::class);
     }
 }
