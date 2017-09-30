@@ -11,6 +11,8 @@
 |
 */
 
+Route::resource('procedures', 'ProceduresController');
+
 Route::get('/', function () {
-    return view('welcome');
+	abort(404);
 });
