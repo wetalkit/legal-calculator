@@ -84,7 +84,10 @@
                                 <input type="text" class="form-control" id="new-item-name" placeholder="vrednost_imot">
                             </td>
                             <td>
-                                <input type="text" class="form-control" id="new-item-type" placeholder="">
+                                <select class="form-control" id="new-item-type">
+                                    <option value="0">Text</option>
+                                    <option value="1">Dropdown</option>
+                                </select>
                             </td>
                             <td>
                                 <input type="text" class="form-control" id="new-item-options" placeholder="30,000">

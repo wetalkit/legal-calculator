@@ -50,7 +50,10 @@
                                                 <input name='new-item-name[]' value="{{ $item->name }}" />
                                             </td>
                                             <td>
-                                                <input name='new-item-type[]' value="{{ $item->type }}" />
+                                                <select class="form-control" id="new-item-type">
+                                                    <option value="0" {{ ($item->type == 0) ? "selected" : "" }}>Text</option>
+                                                    <option value="1" {{ ($item->type == 1) ? "selected" : "" }}>Dropdown</option>
+                                                </select>
                                             </td>
                                             <td>
                                                 <input name='new-item-options[]' value="{{ $item->options }}" />
@@ -112,7 +115,10 @@
                                     <input type="text" class="form-control" id="new-item-name" placeholder="vrednost_imot">
                                 </td>
                                 <td>
-                                    <input type="text" class="form-control" id="new-item-type" placeholder="">
+                                    <select class="form-control" id="new-item-type">
+                                        <option value="0">Text</option>
+                                        <option value="1">Dropdown</option>
+                                    </select>
                                 </td>
                                 <td>
                                     <input type="text" class="form-control" id="new-item-options" placeholder="30,000">

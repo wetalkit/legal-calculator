@@ -48,10 +48,17 @@ $(".add-item").click(function(){
     var type = $("#new-item-type");
     var options = $("#new-item-options");
     var comments = $("#new-item-comments");
+
+    var type0selected = type.val()=='0' ? 'selected' : '';
+    var type1selected = type.val()=='1' ? 'selected' : '';
     var markup = "<tr>" +
         "<td><input name='new-item-label[]' value='"+label.val()+"' />"  + "</td>" +
         "<td><input name='new-item-name[]' value='"+name.val()+"' />" + "</td>" +
-        "<td><input name='new-item-type[]' value='"+type.val()+"' />" + "</td>" +
+        "<td>" +
+            "<select class='form-control' name='new-item-type[]' id='new-item-type[]'>" +
+                "<option value='0'"+type0selected+">Text</option>" +
+                "<option value='1'"+type1selected+">Dropdown</option>" +
+            "</select></td>" +
         "<td><input name='new-item-options[]' value='"+options.val()+"' />"  + "</td>" +
         "<td><input name='new-item-comments[]' value='"+comments.val()+"' />"  + "</td>" +
         "</tr>";
