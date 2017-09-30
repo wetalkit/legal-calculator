@@ -23,6 +23,7 @@ class ProceduresSeeder extends Seeder
             'label' => 'Вред. на имот',
             'name' => 'vrednost_imot',
             'type' => ProcedureItem::ITEM_TEXT,
+            'is_mandatory' => 1,
             'options' => json_encode([
                 'placeholder' => '30,000'
             ]),
@@ -60,6 +61,7 @@ class ProceduresSeeder extends Seeder
             'label' => 'Вред. на возило',
             'name' => 'vrednost_vozilo',
             'type' => ProcedureItem::ITEM_TEXT,
+            'is_mandatory' => 1,
             'options' => json_encode([
                 'placeholder' => '10,000'
             ]),
