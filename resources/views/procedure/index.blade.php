@@ -3,7 +3,7 @@
 @section('content')
 <div class="container-fluid">
     <div class="row">
-        <div class="col-md-8 col-md-offset-2">
+        <div class="col-md-10 col-md-offset-1">
             <div class="panel panel-default">
                 <div class="panel-heading">Procedures</div>
 
@@ -31,7 +31,7 @@
                                 <td>{{ $procedure->name }}</td>
                                 <td><a href="{{ route('procedure.edit', ['id' => $procedure->id]) }}" class="btn btn-primary">Edit</a></td>
                                 <td>
-                                    {{ Form::open(array('url' => 'procedure/' . $procedure->id, 'class' =>'form-inline form-delete')) }}
+                                    {{ Form::open(array('url' => 'admin/procedure/' . $procedure->id, 'class' =>'form-inline form-delete')) }}
                                     {{ Form::hidden('_method', 'DELETE') }}
                                     {{ Form::submit('Delete', array('class' => 'btn btn-danger')) }}
                                     {{ Form::close() }}
