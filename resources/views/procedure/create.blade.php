@@ -90,7 +90,7 @@
                                 </select>
                             </td>
                             <td>
-                                <input type="text" class="form-control" id="new-item-options" placeholder="30,000">
+                                <textarea name="new-item-options" id="new-item-options" cols="40" rows="5"></textarea>
                             </td>
                             <td>
                                 <input type="text" class="form-control" id="new-item-comments" placeholder="...">

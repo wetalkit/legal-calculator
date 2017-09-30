@@ -59,7 +59,7 @@ $(".add-item").click(function(){
                 "<option value='0'"+type0selected+">Text</option>" +
                 "<option value='1'"+type1selected+">Dropdown</option>" +
             "</select></td>" +
-        "<td><input name='new-item-options[]' value='"+options.val()+"' />"  + "</td>" +
+        "<td><textarea name='new-item-options[]' cols='40' rows='5'>"+options.val()+"</textarea></td>" +
         "<td><input name='new-item-comments[]' value='"+comments.val()+"' />"  + "</td>" +
         "</tr>";
     $(".items-table tbody").append(markup);

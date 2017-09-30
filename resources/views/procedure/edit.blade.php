@@ -50,13 +50,13 @@
                                                 <input name='new-item-name[]' value="{{ $item->name }}" />
                                             </td>
                                             <td>
-                                                <select class="form-control" id="new-item-type">
+                                                <select class="form-control" name="new-item-type[]" id="new-item-type[]">
                                                     <option value="0" {{ ($item->type == 0) ? "selected" : "" }}>Text</option>
                                                     <option value="1" {{ ($item->type == 1) ? "selected" : "" }}>Dropdown</option>
                                                 </select>
                                             </td>
                                             <td>
-                                                <input name='new-item-options[]' value="{{ $item->options }}" />
+                                                <textarea name="new-item-options[]" cols="40" rows="5">{{ $item->options }}</textarea>
                                             </td>
                                             <td>
                                                 <input name='new-item-comments[]' value="{{ $item->comments }}" />
@@ -121,7 +121,7 @@
                                     </select>
                                 </td>
                                 <td>
-                                    <input type="text" class="form-control" id="new-item-options" placeholder="30,000">
+                                    <textarea name="new-item-options" id="new-item-options" cols="40" rows="5"></textarea>
                                 </td>
                                 <td>
                                     <input type="text" class="form-control" id="new-item-comments" placeholder="...">
