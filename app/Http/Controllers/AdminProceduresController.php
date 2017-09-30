@@ -78,7 +78,7 @@ class AdminProceduresController extends Controller
 					'comments' => $request['new-item-comments'][$i],
 				]);
 			}
-			Session::flash('status', 'Successfully created procedure!'.var_export(preg_split("/\s+/", $request['new-item-options'][0]),true));
+			Session::flash('status', 'Successfully created procedure!');
 			return Redirect::to('admin/procedure');
 		}
 	}
