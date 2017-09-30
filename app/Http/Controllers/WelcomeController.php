@@ -18,4 +18,29 @@ class WelcomeController extends Controller
         $items = Procedure::find($request->procedureId)->items;
         return $items;
     }
+
+    public function calculate()
+    {
+        return 
+        '{
+            "costs": [
+                {
+                    "title": "lawyer", 
+                    "description": "Адвокат",
+                    "costs": [
+                        {"title": "Договор", "cost": 3400}
+                    ]
+                },
+                {
+                    "title": "notary", 
+                    "description": "Нотар",
+                    "costs": [
+                        { "title": "Солемнизација", "cost": 3300 },
+                        { "title": "Заверка", "cost": 5300 }
+                    ]
+                }
+            ],
+            "total": 12000
+        }';
+    }
 }

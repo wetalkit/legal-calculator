@@ -13,6 +13,7 @@
 
 Route::resource('/', 'WelcomeController')->only(['index']);
 Route::get('/getItemsByProcedure/', 'WelcomeController@getItemsByProcedure')->name('get_items');
+Route::post('/calculate/', 'WelcomeController@calculate')->name('calculate');
 
 Auth::routes();
 
