@@ -19,4 +19,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/admin', 'AdminController@index')->name('admin');
 Route::resource('admin/procedure', 'AdminProceduresController');
-Route::resource('procedures', 'ProceduresController');
+
+
+Route::get('procedues/calculate', 'ProceduresController@getItemsByProcedure')->name('get_items');
+Route::resource('procedures', 'ProceduresController')->only(['index', 'show']);

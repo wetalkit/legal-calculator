@@ -24,9 +24,9 @@ class ProceduresSeeder extends Seeder
             'name' => 'vrednost_imot',
             'type' => ProcedureItem::ITEM_TEXT,
             'is_mandatory' => 1,
-            'options' => json_encode([
+            'options' => [
                 'placeholder' => '30,000'
-            ]),
+            ],
             'comments' => 'член 22 од законот за даноците на имот'
         ]);
         ProcedureItem::create([
@@ -34,7 +34,7 @@ class ProceduresSeeder extends Seeder
             'label' => 'Број на странки',
             'name' => 'broj_stranki',
             'type' => ProcedureItem::ITEM_SELECT,
-            'options' => json_encode([
+            'options' => [
                 'placeholder' => 'Изберете број на странки',
                 'options' => [
                     0 => '0',
@@ -42,7 +42,7 @@ class ProceduresSeeder extends Seeder
                     2 => '2',
                     3 => '3'
                 ]
-            ]),
+            ],
             'comments' => 'Број на странки'
         ]);
         ProcedureFormula::create([
@@ -62,9 +62,9 @@ class ProceduresSeeder extends Seeder
             'name' => 'vrednost_vozilo',
             'type' => ProcedureItem::ITEM_TEXT,
             'is_mandatory' => 1,
-            'options' => json_encode([
+            'options' => [
                 'placeholder' => '10,000'
-            ]),
+            ],
             'comments' => 'член 22 од законот за даноците на имот'
         ]);
         ProcedureItem::create([
@@ -72,13 +72,97 @@ class ProceduresSeeder extends Seeder
             'label' => 'Регистарски таблички (Дали е во друг град)',
             'name' => 'reg_tablicki',
             'type' => ProcedureItem::ITEM_SELECT,
-            'options' => json_encode([
+            'options' => [
                 'placeholder' => 'Дали е во друг град',
                 'options' => [
                     0 => 'Да',
                     1 => 'Не'
                 ]
-            ]),
+            ],
+            'comments' => 'Дали е во друг град'
+        ]);
+        ProcedureItem::create([
+            'procedure_id' => $id,
+            'label' => 'Регистарски таблички (Дали е во друг град)',
+            'name' => 'reg_tablicki',
+            'type' => ProcedureItem::ITEM_SELECT,
+            'options' => [
+                'placeholder' => 'Дали е во друг град',
+                'options' => [
+                    0 => 'Да',
+                    1 => 'Не'
+                ]
+            ],
+            'comments' => 'Дали е во друг град'
+        ]);
+        ProcedureItem::create([
+            'procedure_id' => $id,
+            'label' => 'Регистарски таблички (Дали е во друг град)',
+            'name' => 'reg_tablicki',
+            'type' => ProcedureItem::ITEM_SELECT,
+            'options' => [
+                'placeholder' => 'Дали е во друг град',
+                'options' => [
+                    0 => 'Да',
+                    1 => 'Не'
+                ]
+            ],
+            'comments' => 'Дали е во друг град'
+        ]);
+        ProcedureItem::create([
+            'procedure_id' => $id,
+            'label' => 'Регистарски таблички (Дали е во друг град)',
+            'name' => 'reg_tablicki',
+            'type' => ProcedureItem::ITEM_SELECT,
+            'options' => [
+                'placeholder' => 'Дали е во друг град',
+                'options' => [
+                    0 => 'Да',
+                    1 => 'Не'
+                ]
+            ],
+            'comments' => 'Дали е во друг град'
+        ]);
+        ProcedureItem::create([
+            'procedure_id' => $id,
+            'label' => 'Регистарски таблички (Дали е во друг град)',
+            'name' => 'reg_tablicki',
+            'type' => ProcedureItem::ITEM_SELECT,
+            'options' => [
+                'placeholder' => 'Дали е во друг град',
+                'options' => [
+                    0 => 'Да',
+                    1 => 'Не'
+                ]
+            ],
+            'comments' => 'Дали е во друг град'
+        ]);
+        ProcedureItem::create([
+            'procedure_id' => $id,
+            'label' => 'Регистарски таблички (Дали е во друг град)',
+            'name' => 'reg_tablicki',
+            'type' => ProcedureItem::ITEM_SELECT,
+            'options' => [
+                'placeholder' => 'Дали е во друг град',
+                'options' => [
+                    0 => 'Да',
+                    1 => 'Не'
+                ]
+            ],
+            'comments' => 'Дали е во друг град'
+        ]);
+        ProcedureItem::create([
+            'procedure_id' => $id,
+            'label' => 'Регистарски таблички (Дали е во друг град)',
+            'name' => 'reg_tablicki',
+            'type' => ProcedureItem::ITEM_SELECT,
+            'options' => [
+                'placeholder' => 'Дали е во друг град',
+                'options' => [
+                    0 => 'Да',
+                    1 => 'Не'
+                ]
+            ],
             'comments' => 'Дали е во друг град'
         ]);
         ProcedureFormula::create([
