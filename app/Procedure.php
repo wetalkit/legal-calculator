@@ -11,11 +11,11 @@ class Procedure extends Model
     /**
      * Formulas
      * 
-     * @return Illuminate\Database\Eloquent\Relations\HasOne
+     * @return Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function formulas()
     {
-        return $this->hasOne(ProcedureFormula::class);
+        return $this->hasMany(ProcedureFormula::class);
     }
 
     /**

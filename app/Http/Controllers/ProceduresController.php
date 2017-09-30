@@ -16,9 +16,9 @@ class ProceduresController extends Controller
 	{
 
 		$response = [];
-		$procedures = Procedure::with('items')->get();
+		$procedures = Procedure::all();
 
-		foreach ($procedures as $procdeure_key => $procedure) {
+		foreach ($procedures as $procedeure_key => $procedure) {
 
 			$data = [
 				'title' => $procedure->name
@@ -29,6 +29,7 @@ class ProceduresController extends Controller
 					'name' => $item->label,
 					'var' => $item->name,
 					'type' => $item->type,
+					'attributes' => $item->options,
 					'comment' => $item->comments,
 				];
 			}
