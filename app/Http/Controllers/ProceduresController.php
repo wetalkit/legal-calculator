@@ -28,7 +28,7 @@ class ProceduresController extends Controller
                     'var' => $item->name,
                     'type' => $item->type,
                     'attributes' => $item->options,
-	                'is_mandatory' => $item->is_mandatory,
+					'is_mandatory' => $item->is_mandatory,
                     'comment' => $item->comments,
                 ];
             }
@@ -65,7 +65,7 @@ class ProceduresController extends Controller
                 'var' => $item->name,
                 'type' => $item->type,
                 'attributes' => $item->options,
-                'is_mandatory' => $item->is_mandatory,
+				'is_mandatory' => $item->is_mandatory,
                 'comment' => $item->comments,
             ];
         }
