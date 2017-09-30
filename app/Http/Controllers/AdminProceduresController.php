@@ -62,11 +62,15 @@ class AdminProceduresController extends Controller
 						$options = $request['new-item-options'][$i];
 						break;
 					case ProcedureItem::ITEM_SELECT:
-						$options_split = preg_split("/\s+/", $request['new-item-options'][$i]);
-//						foreach($options_split as $option_split) {
-//							$option =
-//						}
-						$options = "{" . '' . "}";
+						$optionsArray = array();
+						$options_rows = preg_split("/\s+/", $request['new-item-options'][$i]);
+						foreach($options_rows as $option_row) {
+							$optionExplodes = explode(',', $option_row);
+							if(count($optionExplodes)>=1){
+								$optionsArray = array_merge($optionsArray, array($optionExplodes[0] => $optionExplodes[1]));
+							}
+						}
+						$options = json_encode($optionsArray);
 						break;
 				}
 				$procedureItem = ProcedureItem::create([
