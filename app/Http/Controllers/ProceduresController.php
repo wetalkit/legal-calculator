@@ -20,7 +20,7 @@ class ProceduresController extends Controller
 
         foreach ($procedures as $procedeure_key => $procedure) {
             $data = [
-            	'procedure_id' => $procedure->id,
+                'procedure_id' => $procedure->id,
                 'title' => $procedure->name
             ];
 
@@ -103,9 +103,6 @@ class ProceduresController extends Controller
 
         foreach ($procedure->formulas as $keyFormula => $formula) {
             $dynamicFormula = $formula->formula;
-            if (!isset($sumCategory[$formula->category]['cost'])) {
-                $sumCategory[$formula->category]['cost'] = 0;
-            }
             
             foreach ($dynamicNames as $key => $value) {
                 $dynamicFormula = str_replace($key, $value, $dynamicFormula);
@@ -120,9 +117,9 @@ class ProceduresController extends Controller
                 ]);
             }
 
-            $sumCategory[$formula->category] = [
-                'name' => $formula->name,
-                'cost' => $sumCategory[$formula->category]['cost'] + $itemSum
+            $sumCategory[$formula->category]['costs'][] = [
+            	'name' => $formula->name,
+            	'cost' => $itemSum
             ];
 
             $total += $itemSum;
@@ -131,9 +128,7 @@ class ProceduresController extends Controller
         $response = [];
 
         foreach ($sumCategory as $keySumCategory => $sum) {
-            $response['costs'][] = array_merge(ProcedureFormula::getCategoryDetails($keySumCategory), [
-                'costs' => $sum
-            ]);
+            $response['costs'][] = array_merge(ProcedureFormula::getCategoryDetails($keySumCategory), $sum);
             $response['total'] = $total;
         }
         return response()->json($response);
