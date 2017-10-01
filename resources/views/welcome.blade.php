@@ -58,9 +58,9 @@
                             html += '<span class="info-icon" title="'+items[i].comment+'"></span>'
                             if(items[i].type == 2) {
                                 var placeholder = items[i].attributes.placeholder;
-                                html += '<input type="text" name="'+items[i].var+'" placeholder="'+placeholder+'" class="form-control" required/>';
+                                html += '<input type="text" name="'+items[i].var+'" placeholder="'+placeholder+'" class="form-control" '+(items[i].is_mandatory == 1 ? 'required' : '')+'/>';
                             } else {
-                                html += '<select name="'+items[i].var+'" class="form-control">';
+                                html += '<select name="'+items[i].var+'" class="form-control" '+(items[i].is_mandatory == 1 ? 'required' : '')+'>';
                                 var options = items[i].attributes.options;
                                 var optionLen = options.length;
                                 for(var j = 0; j < optionLen; j++) {
