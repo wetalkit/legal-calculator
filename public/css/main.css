@@ -1,0 +1,33 @@
+.navbar.bg-primary {
+    background-color: #3F51B5 !important;
+}
+.navbar.bg-primary .navbar-brand {
+    color: white;
+}
+body {
+    padding: 80px 20px;
+}
+body label, body p, body h1, body h2, body h3, body .form-control {
+    color: #666;
+    font-weight: 300;
+}
+body h3 {
+    font-size: 22px;
+    padding: 10px 0
+}
+.btn.btn-primary {
+    background-color: #FF4081;
+    border: 1px solid #FF4081;
+    color: white;
+}
+.btn.btn-primary:hover {
+    background-color: #303F9F;
+    border: 1px solid #303F9F;
+}
+#calculate {
+    display: none;
+    text-align: right;
+}
+.calculated-detailed p {
+    padding-left: 30px;
+}
