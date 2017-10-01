@@ -19,6 +19,7 @@ body h3 {
     background-color: #FF4081;
     border: 1px solid #FF4081;
     color: white;
+    cursor: pointer;
 }
 .btn.btn-primary:hover {
     background-color: #303F9F;
@@ -30,4 +31,16 @@ body h3 {
 }
 .calculated-detailed p {
     padding-left: 30px;
+}
+.info-icon {
+    cursor: pointer;
+    background-image: url(/images/info.png);
+    width: 15px;
+    height: 15px;
+    background-size: cover;
+    display: inline-block;
+    margin-left: 10px;
+    transform: translateY(20%);
+    -webkit-transform: translateY(20%);
+    -ms-transform: translateY(20%);
 }
