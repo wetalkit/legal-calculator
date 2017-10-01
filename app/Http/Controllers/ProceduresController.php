@@ -46,14 +46,17 @@ class ProceduresController extends Controller
      * @param  Request $request [description]
      * @param  [type]  $id      [description]
      * 
-     * @return [type]           [description]
+     * @return json
      */
     public function show(Request $request, $id)
     {
         $response = [];
 
         if (!$procedure = Procedure::find($id)) {
-            return response()->json([]);
+            return response()->json([
+                'error' => true,
+                'message' => 'Procedure not found.'
+            ]);
         }
 
         $data = [
@@ -79,7 +82,7 @@ class ProceduresController extends Controller
      * 
      * @param  Request $request [description]
      * 
-     * @return [type]           [description]
+     * @return json
      */
     public function calculate(Request $request)
     {
@@ -106,7 +109,14 @@ class ProceduresController extends Controller
                 $dynamicFormula = str_replace($key, $value, $dynamicFormula);
             }
 
-            $itemSum = eval('return '.$dynamicFormula.';');
+            try {
+                $itemSum = eval('return '.$dynamicFormula.';');
+            } catch (\Exception $e) {
+                return response()->json([
+                    'error' => true,
+                    'message' => $e->getMessage()
+                ]);
+            }
 
             $sumCategory[$formula->category] = [
                 'name' => $formula->name,
