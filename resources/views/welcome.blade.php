@@ -55,7 +55,8 @@
                         for(var i = 0; i < n; i++) {
                             html += '<div class="form-group">';
                             html += '<label for="'+items[i].var+'">'+items[i].name+'</label>';
-                            html += '<span class="info-icon" title="'+items[i].comment+'"></span>'
+                            html += '<span class="info-icon" title="'+items[i].comment+'"></span>';
+                            var value = items[i].is_mandatory == 1 ? '' : items[i].attributes.placeholder;
                             if(items[i].type == 1) {
                                 var placeholder = items[i].attributes.placeholder;
                                 html += '<input type="text" name="'+items[i].var+'" placeholder="'+placeholder+'" class="form-control" '+(items[i].is_mandatory == 1 ? 'required' : '')+'/>';
