@@ -13,4 +13,30 @@ class ProcedureFormula extends Model
     protected $guarded = ['id'];
     protected $table = 'procedures_formulas';
     public $timestamps = true;
+
+
+    public static function getCategoryDetails($category) {
+    	switch ($category) {
+    		case self::FORMULA_LAWYER:
+    			return [
+    				'title' => 'lawyer',
+    				'description' => 'Адвокат'
+    			];
+    			break;
+
+    		case self::FORMULA_NOTAR:
+    			return [
+    				'title' => 'notar',
+    				'description' => 'Нотар'
+    			];
+    			break;
+
+    		case self::FORMULA_KATASTAR:
+    			return [
+    				'title' => 'katastar',
+    				'description' => 'Катастар'
+    			];
+    			break;
+    	}
+    }
 }
