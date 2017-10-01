@@ -20,6 +20,7 @@ class ProceduresController extends Controller
 
         foreach ($procedures as $procedeure_key => $procedure) {
             $data = [
+            	'procedure_id' => $procedure->id,
                 'title' => $procedure->name
             ];
 
@@ -60,6 +61,7 @@ class ProceduresController extends Controller
         }
 
         $data = [
+            'procedure_id' => $procedure->id,
             'title' => $procedure->name
         ];
 

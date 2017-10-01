@@ -27,6 +27,6 @@ class Procedure extends Model
      */
     public function items()
     {
-        return $this->hasMany(ProcedureItem::class);
+        return $this->hasMany(ProcedureItem::class)->orderBy('is_mandatory', 'desc');
     }
 }
