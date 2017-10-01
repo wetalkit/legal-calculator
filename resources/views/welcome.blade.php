@@ -65,7 +65,7 @@
                                 var options = items[i].attributes.options;
                                 var optionLen = options.length;
                                 for(var j = 0; j < optionLen; j++) {
-                                    html += '<option value="'+j+'" '+(value == j ? 'selected' : '')+''>'+options[j]+'</option>';       
+                                    html += '<option value="'+j+'" '+(value == j ? 'selected' : '')+'>'+options[j]+'</option>';       
                                 }
                                 html += '</select>';
                             }
