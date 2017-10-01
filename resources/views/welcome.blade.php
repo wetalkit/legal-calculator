@@ -59,13 +59,13 @@
                             var value = items[i].is_mandatory == 1 ? '' : items[i].attributes.placeholder;
                             if(items[i].type == 1) {
                                 var placeholder = items[i].attributes.placeholder;
-                                html += '<input type="text" name="'+items[i].var+'" placeholder="'+placeholder+'" class="form-control" '+(items[i].is_mandatory == 1 ? 'required' : '')+'/>';
+                                html += '<input type="text" name="'+items[i].var+'" placeholder="'+placeholder+'" class="form-control" '+(items[i].is_mandatory == 1 ? 'required' : '')+' value="'+value+'"/>';
                             } else {
                                 html += '<select name="'+items[i].var+'" class="form-control" '+(items[i].is_mandatory == 1 ? 'required' : '')+'>';
                                 var options = items[i].attributes.options;
                                 var optionLen = options.length;
                                 for(var j = 0; j < optionLen; j++) {
-                                    html += '<option value="'+j+'">'+options[j]+'</option>';       
+                                    html += '<option value="'+j+'" '+(value == j ? 'selected' : '')+''>'+options[j]+'</option>';       
                                 }
                                 html += '</select>';
                             }
