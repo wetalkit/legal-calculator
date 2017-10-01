@@ -38,11 +38,7 @@ class AdminProceduresController extends Controller
      */
     public function create()
     {
-    	$formulas = [
-        	ProcedureFormula::FORMULA_LAWYER => 'Адвокат',
-        	ProcedureFormula::FORMULA_NOTAR => 'Нотар',
-        	ProcedureFormula::FORMULA_KATASTAR => 'Катастар',
-        ];
+    	$formulas = ProcedureFormula::getFormulas();
         return view('procedure.create', compact('formulas'));
     }
     /**
@@ -72,11 +68,7 @@ class AdminProceduresController extends Controller
     public function edit($id)
     {
         $procedure = Procedure::find($id);
-        $formulas = [
-        	ProcedureFormula::FORMULA_LAWYER => 'Адвокат',
-        	ProcedureFormula::FORMULA_NOTAR => 'Нотар',
-        	ProcedureFormula::FORMULA_KATASTAR => 'Катастар',
-        ];
+        $formulas = ProcedureFormula::getFormulas();
         return view('procedure.edit', compact('formulas', 'procedure'));
     }
 
