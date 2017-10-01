@@ -39,4 +39,13 @@ class ProcedureFormula extends Model
     			break;
     	}
     }
+
+    public static function getFormulas()
+    {
+        return [
+            self::FORMULA_LAWYER => 'Адвокат',
+            self::FORMULA_NOTAR => 'Нотар',
+            self::FORMULA_KATASTAR => 'Катастар',
+        ];
+    }
 }

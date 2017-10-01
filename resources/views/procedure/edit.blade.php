@@ -3,9 +3,9 @@
 @section('content')
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-8 col-md-offset-2">
+            <div class="col-md-10 col-md-offset-1">
                 <div class="panel panel-default">
-                    <div class="panel-heading">Edit procedure: {{ $procedure->name }}</div>
+                    <div class="panel-heading">Промени процедура: {{ $procedure->name }}</div>
 
                     <div class="panel-body">
                         @if (session('status'))
@@ -13,20 +13,15 @@
                                 {{ session('status') }}
                             </div>
                         @endif
-                        <a href="{{ route('procedure.index') }}" class="btn btn-success">Back</a>
                         <div class="col-xs-12">
                             {{ Form::model($procedure, array('route' => array('procedure.update', $procedure->id), 'method' => 'PUT')) }}
 
-                            <div class="form-group">
-                                {{ Form::label('name', 'Name') }}
-                                {{ Form::text('name', null, array('class' => 'form-control')) }}
-                                @if ($errors->has('name'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('name') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                            {{ Form::submit('Update', array('class' => 'btn btn-primary')) }}
+                            @include('procedure._table')
+
+                            {{ Form::input('hidden', 'name', $procedure->id, array('id' => 'procedure-id', 'data-url' => route('get_procedure_items'))) }}
+                            
+                            {{ Form::submit('Зачувај', array('class' => 'btn btn-primary pull-right')) }}
+                            <a href="{{url('admin/procedure')}}" class="btn btn-default pull-right">Откажи</a>
 
                             {{ Form::close() }}
                         </div>

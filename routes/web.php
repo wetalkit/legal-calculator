@@ -12,14 +12,13 @@
 */
 
 Route::resource('/', 'WelcomeController')->only(['index']);
-Route::get('/getItemsByProcedure/', 'WelcomeController@getItemsByProcedure')->name('get_items');
-Route::post('/calculate/', 'WelcomeController@calculate')->name('calculate');
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/admin', 'AdminController@index')->name('admin');
 Route::resource('admin/procedure', 'AdminProceduresController');
+Route::get('admin/getProcedureItems', 'AdminProceduresController@getProcedureItems')->name('get_procedure_items');
 
 Route::any('calculate', 'ProceduresController@calculate');
 Route::resource('procedures', 'ProceduresController')->only(['index', 'show']);
