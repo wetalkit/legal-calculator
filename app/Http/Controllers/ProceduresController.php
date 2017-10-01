@@ -88,6 +88,8 @@ class ProceduresController extends Controller
     {
         $inputs = $request->input();
         $dynamicNames = [];
+        $sumCategory = [];
+        $total = 0;
 
         if (!$procedure = Procedure::with('items', 'formulas')->find($inputs['procedure_id'])) {
             return response()->json([]);
@@ -96,8 +98,6 @@ class ProceduresController extends Controller
         foreach ($procedure->items as $key => $item) {
             $dynamicNames[$item->name] = array_key_exists($item->name, $inputs) ? $inputs[$item->name] : 0;
         }
-
-        $sumCategory = [];
 
         foreach ($procedure->formulas as $keyFormula => $formula) {
             $dynamicFormula = $formula->formula;
@@ -120,8 +120,10 @@ class ProceduresController extends Controller
 
             $sumCategory[$formula->category] = [
                 'name' => $formula->name,
-                'cost' => $itemSum
+                'cost' => $sumCategory[$formula->category]['cost'] + $itemSum
             ];
+
+            $total += $itemSum;
         }
 
         $response = [];
@@ -130,6 +132,7 @@ class ProceduresController extends Controller
             $response['costs'][] = array_merge(ProcedureFormula::getCategoryDetails($keySumCategory), [
                 'costs' => $sum
             ]);
+            $response['total'] = $total;
         }
         return response()->json($response);
     }
