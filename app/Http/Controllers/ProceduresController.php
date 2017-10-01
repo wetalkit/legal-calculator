@@ -88,7 +88,7 @@ class ProceduresController extends Controller
     {
         $inputs = $request->input();
         $dynamicNames = [];
-		$sumCategory = [];
+        $sumCategory = [];
         $total = 0;
 
         if (!$procedure = Procedure::with('items', 'formulas')->find($inputs['procedure_id'])) {
