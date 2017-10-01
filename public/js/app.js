@@ -77,7 +77,7 @@ function addProcedureFormula(values) {
     var markup = '<tr>'+
     '<td><input type="text" class="form-control" name="formula-name[]" value="'+values['name']+'" required/>'+
     '<input type="hidden" name="category[]" value="'+values['category']+'" required/></td>'+
-    '<td><input type="text" class="form-control" name="formula[]" value="'+values['formula']+'" required/></td>'+
+    '<td><textarea class="form-control" name="formula[]" required>'+values['formula']+'</textarea></td>'+
     '<td><a class="btn btn-danger btn-xs delete-item">Remove</a></td>'
     '</tr>';
     $('.formulas').find('#formula-'+values['category']).append(markup);
