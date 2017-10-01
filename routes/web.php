@@ -21,5 +21,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/admin', 'AdminController@index')->name('admin');
 Route::resource('admin/procedure', 'AdminProceduresController');
 
-Route::get('calculate', 'ProceduresController@calculate');
+Route::any('calculate', 'ProceduresController@calculate');
 Route::resource('procedures', 'ProceduresController')->only(['index', 'show']);
