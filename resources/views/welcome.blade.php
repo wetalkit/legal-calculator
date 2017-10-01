@@ -56,7 +56,7 @@
                             html += '<div class="form-group">';
                             html += '<label for="'+items[i].var+'">'+items[i].name+'</label>';
                             html += '<span class="info-icon" title="'+items[i].comment+'"></span>'
-                            if(items[i].type == 2) {
+                            if(items[i].type == 1) {
                                 var placeholder = items[i].attributes.placeholder;
                                 html += '<input type="text" name="'+items[i].var+'" placeholder="'+placeholder+'" class="form-control" '+(items[i].is_mandatory == 1 ? 'required' : '')+'/>';
                             } else {

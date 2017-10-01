@@ -41,8 +41,8 @@ function addProcedureItem(i, values)
         "<td><input name='item-name["+i+"]' class='form-control' value='"+values['item-name']+"' required/>" + "</td>" +
         "<td>" +
             "<select class='form-control' name='type["+i+"]' required>" +
-                "<option value='2' "+(values['type'] == 2 ? 'selected' : '')+">Text</option>" +
-                "<option value='1' "+(values['type'] == 1 ? 'selected' : '')+">Select</option>" +
+                "<option value='1' "+(values['type'] == 1 ? 'selected' : '')+">Text</option>" +
+                "<option value='2' "+(values['type'] == 2 ? 'selected' : '')+">Select</option>" +
             "</select></td>" +
         "<td><input name='value["+i+"]' class='form-control' value='"+values['value']+"' required/></td>";
         if(typeof(values['options']) == 'undefined') {
@@ -144,7 +144,7 @@ $("body").on('click', ".delete-item", function(){
 });
 
 $('.items-table').on('change', '[name^="type"]', function() {
-    if($(this).val() == 1) {
+    if($(this).val() == 2) {
         $(this).parents(':eq(1)').find('[name^="options"]').prop('disabled', false);
     } else {
         $(this).parents(':eq(1)').find('[name^="options"]').prop('disabled', true);
