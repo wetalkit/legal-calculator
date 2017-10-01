@@ -22,6 +22,5 @@ Route::get('/admin', 'AdminController@index')->name('admin');
 Route::resource('admin/procedure', 'AdminProceduresController');
 Route::get('admin/getProcedureItems', 'AdminProceduresController@getProcedureItems')->name('get_procedure_items');
 
-
-Route::get('procedues/calculate', 'ProceduresController@getItemsByProcedure')->name('get_items');
+Route::any('calculate', 'ProceduresController@calculate');
 Route::resource('procedures', 'ProceduresController')->only(['index', 'show']);
