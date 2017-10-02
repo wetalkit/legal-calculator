@@ -9,6 +9,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
+use DB;
+use Exception;
 
 class AdminProceduresController extends Controller
 {
@@ -49,14 +51,20 @@ class AdminProceduresController extends Controller
      */
     public function store(StoreProcedureRequest $request)
     {
-        $procedure  = Procedure::create([
-            'name' => $request['name'],
-        ]);
+        try {
+            DB::transaction(function () use ($request) {
+                $procedure  = Procedure::create([
+                    'name' => $request['name'],
+                ]);
 
-        $this->insertItems($request, $procedure);
-        
-        Session::flash('status', 'Процедурата е успешно зачувана.');
-        return Redirect::to('admin/procedure');
+                $this->insertItems($request, $procedure);
+            });
+            Session::flash('status', 'Процедурата е успешно зачувана.');
+            return Redirect::to('admin/procedure');
+        } catch(Exception $e) {
+            Session::flash('error', 'Настана грешка. Ве молиме обидете се повторно. Системска порака: '.$e->getMessage());
+            return Redirect::back();
+        }
     }
 
     /**
@@ -81,16 +89,23 @@ class AdminProceduresController extends Controller
      */
     public function update(StoreProcedureRequest $request, $id)
     {
-        $procedure = Procedure::find($id);
-        foreach ($procedure->items as $item) {
-        	$item->delete();
+        try {
+            DB::transaction(function () use ($request, $id) {
+                $procedure = Procedure::find($id);
+                foreach ($procedure->items as $item) {
+                	$item->delete();
+                }
+                foreach ($procedure->formulas as $formula) {
+                	$formula->delete();
+                }
+                $this->insertItems($request, $procedure);
+            });
+            Session::flash('status', 'Процедурата е успешно зачувана.');
+            return Redirect::to('admin/procedure');
+        } catch(Exception $e) {
+            Session::flash('error', 'Настана грешка. Ве молиме обидете се повторно. Системска порака: '.$e->getMessage());
+            return Redirect::back();
         }
-        foreach ($procedure->formulas as $formula) {
-        	$formula->delete();
-        }
-        $this->insertItems($request, $procedure);
-        Session::flash('status', 'Процедурата е успешно зачувана.');
-        return Redirect::to('admin/procedure');
     }
 
     /**

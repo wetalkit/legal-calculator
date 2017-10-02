@@ -7,6 +7,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Додади процедура</div>
                 <div class="panel-body">
+                    @include('procedure._status_messages')
                     <div class="col-xs-12">
                         {{ Form::open(array('url' => 'admin/procedure')) }}
 

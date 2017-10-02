@@ -8,11 +8,7 @@
                     <div class="panel-heading">Промени процедура: {{ $procedure->name }}</div>
 
                     <div class="panel-body">
-                        @if (session('status'))
-                            <div class="alert alert-success">
-                                {{ session('status') }}
-                            </div>
-                        @endif
+                        @include('procedure._status_messages')
                         <div class="col-xs-12">
                             {{ Form::model($procedure, array('route' => array('procedure.update', $procedure->id), 'method' => 'PUT')) }}
 

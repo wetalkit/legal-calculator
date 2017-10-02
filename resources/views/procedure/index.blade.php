@@ -8,11 +8,7 @@
                 <div class="panel-heading">Процедури</div>
 
                 <div class="panel-body">
-                    @if (session('status'))
-                        <div class="alert alert-success">
-                            {{ session('status') }}
-                        </div>
-                    @endif
+                    @include('procedure._status_messages')
                     <div class="pull-right">
                         <a href="{{ route('procedure.create') }}" class="btn btn-primary">Додади Процедура</a>
                     </div>
