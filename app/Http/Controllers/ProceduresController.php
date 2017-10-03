@@ -91,14 +91,14 @@ class ProceduresController extends Controller
         $inputs = $request->input();
         $dynamicNames = [];
         $sumCategory = [];
-        $total = 0;
+        $totalMin = $totalMax = 0;
 
         if (!$procedure = Procedure::with('items', 'formulas')->find($inputs['procedure_id'])) {
             return response()->json([]);
         }
 
         foreach ($procedure->items as $key => $item) {
-            $dynamicNames[$item->name] = array_key_exists($item->name, $inputs) ? $inputs[$item->name] : 0;
+            $dynamicNames[$item->name] = array_key_exists($item->name, $inputs) ? intval($inputs[$item->name]) : 0;
         }
 
         foreach ($procedure->formulas as $keyFormula => $formula) {
@@ -108,28 +108,53 @@ class ProceduresController extends Controller
                 $dynamicFormula = str_replace($key, $value, $dynamicFormula);
             }
 
-            try {
-                $itemSum = eval('return '.$dynamicFormula.';');
-            } catch (\Exception $e) {
-                return response()->json([
-                    'error' => true,
-                    'message' => $e->getMessage()
-                ]);
+            preg_match('/[\d\.]+(\|[\d\.]+)+/', $dynamicFormula, $matches);
+            if(count($matches) > 0) {
+                //Values Variants
+                $subFormulas = [];
+                $valuesVariants = $matches[0];
+                $values = explode("|", $valuesVariants);
+                foreach ($values as $value) {
+                    $subFormulas[] = str_replace($valuesVariants, $value, $dynamicFormula);
+                }
+            } else {
+                //Formula Variants
+                $subFormulas = explode("|", $dynamicFormula);
             }
-
+            $results = [];
+            foreach ($subFormulas as $subFormula) {
+                try {
+                    if(strpos($subFormula, "return ") > -1)
+                        $results[] = eval($subFormula);
+                    else
+                        $results[] = eval('return '.$subFormula.';');
+                } catch (\Exception $e) {
+                    return response()->json([
+                        'error' => true,
+                        'message' => $e->getMessage()
+                    ]);
+                }
+            }
             $sumCategory[$formula->category]['costs'][] = [
             	'name' => $formula->name,
-            	'cost' => $itemSum
+            	'cost' => max($results),
+                'cost_min' => min($results),
+                'cost_max' => max($results)
             ];
 
-            $total += $itemSum;
+            $totalMin += min($results);
+            $totalMax += max($results);
+
         }
 
         $response = [];
 
         foreach ($sumCategory as $keySumCategory => $sum) {
             $response['costs'][] = array_merge(ProcedureFormula::getCategoryDetails($keySumCategory), $sum);
-            $response['total'] = $total;
+            $response['total'] = $totalMax;
+            $response['total_min'] = $totalMin;
+            $response['total_max'] = $totalMax;
+
         }
         return response()->json($response);
     }
