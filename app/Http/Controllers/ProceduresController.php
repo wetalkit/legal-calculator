@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Procedure;
 use App\ProcedureFormula;
+use App\Helpers\Helper;
 
 class ProceduresController extends Controller
 {
@@ -109,7 +110,7 @@ class ProceduresController extends Controller
             }
 
             preg_match('/[\d\.]+(\|[\d\.]+)+/', $dynamicFormula, $matches);
-            if(count($matches) > 0) {
+            if (count($matches) > 0) {
                 //Values Variants
                 $subFormulas = [];
                 $valuesVariants = $matches[0];
@@ -124,10 +125,11 @@ class ProceduresController extends Controller
             $results = [];
             foreach ($subFormulas as $subFormula) {
                 try {
-                    if(strpos($subFormula, "return ") > -1)
+                    if (strpos($subFormula, "return ") > -1) {
                         $results[] = eval($subFormula);
-                    else
+                    } else {
                         $results[] = eval('return '.$subFormula.';');
+                    }
                 } catch (\Exception $e) {
                     return response()->json([
                         'error' => true,
@@ -136,15 +138,17 @@ class ProceduresController extends Controller
                 }
             }
             $sumCategory[$formula->category]['costs'][] = [
-            	'name' => $formula->name,
-            	'cost' => max($results),
+                'name' => $formula->name,
+                'cost' => max($results),
                 'cost_min' => min($results),
-                'cost_max' => max($results)
+                'cost_max' => max($results),
+                'cost_formatted' => Helper::money(max($results)),
+                'cost_min_formatted' => Helper::money(min($results)),
+                'cost_max_formatted' => Helper::money(max($results))
             ];
 
             $totalMin += min($results);
             $totalMax += max($results);
-
         }
 
         $response = [];
@@ -154,7 +158,9 @@ class ProceduresController extends Controller
             $response['total'] = $totalMax;
             $response['total_min'] = $totalMin;
             $response['total_max'] = $totalMax;
-
+            $response['total_formatted'] = Helper::money($totalMax);
+            $response['total_min_formatted'] = Helper::money($totalMin);
+            $response['total_max_formatted'] = Helper::money($totalMax);
         }
         return response()->json($response);
     }

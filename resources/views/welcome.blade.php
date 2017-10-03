@@ -83,7 +83,7 @@
                     dataType: 'json',
                     success: function(data, textStatus, jqXHR) {
                         var costs = data.costs;
-                        var total = data.total;
+                        var total = data.total_formatted;
                         var n = costs.length;
                         var html = '<hr>';
                         for(var i = 0; i < n; i++) {
@@ -92,7 +92,7 @@
                             var costDetails = data.costs[i].costs;
                             var k = costDetails.length;
                             for(var j = 0; j < k; j++) {
-                                html += '<p><b>'+costDetails[j].name+': </b>'+costDetails[j].cost+'</p>';
+                                html += '<p><b>'+costDetails[j].name+': </b>'+costDetails[j].cost_formatted+'</p>';
                             }
                         }
                         html += '<h3>Вкупно: '+total+'</h3>';
