@@ -6,8 +6,6 @@ use Illuminate\Http\Request;
 use App\Procedure;
 use App\ProcedureFormula;
 
-include_once "EvalHelperFunctions.php";
-
 class ProceduresController extends Controller
 {
     /**
@@ -102,7 +100,6 @@ class ProceduresController extends Controller
         foreach ($procedure->items as $key => $item) {
             $dynamicNames[$item->name] = array_key_exists($item->name, $inputs) ? intval($inputs[$item->name]) : 0;
         }
-
 
         foreach ($procedure->formulas as $keyFormula => $formula) {
             $dynamicFormula = $formula->formula;
