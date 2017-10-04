@@ -106,7 +106,7 @@ class ProceduresController extends Controller
             $dynamicFormula = $formula->formula;
             
             foreach ($dynamicNames as $key => $value) {
-                $dynamicFormula = preg_replace('/' . $key . '(?![_\w])/m', $value, $dynamicFormula);
+                $dynamicFormula = preg_replace('/\b' . $key . '\b/m', $value, $dynamicFormula);
             }
 
             preg_match('/[\d\.]+(\|[\d\.]+)+/', $dynamicFormula, $matches);
