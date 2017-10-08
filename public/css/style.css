@@ -354,19 +354,50 @@ body {
     letter-spacing: 1px;    
 }
 @media(min-width: 768px) AND (max-width: 1024px){
-    #calculate, #additional-fields{
+    #btn-calculate, #btn-show{
         display:block;
-        float:none;
-        widht: 100%;
+        width: 100%;
+        margin-bottom:20px;
+    }
+    #calculated{
+        margin-top:120px !important;
+    }
+    .presmetka {
+        display: block;
+        margin-right: 30px;
+        margin-left: 30px;
+
     }
 }
 @media (max-width: 768px) {
   .presmetka {
     display: block;
-    margin-right: 10px;
-    margin-left: 10px;
+    margin-right: 0;
+    margin-left: 0;
     
   }
+    .wrapper{
+        margin-right:0;
+        margin-left:0;
+    }
+    .heading{
+        padding-right:0;
+        padding-left:0;
+        font-size:26px;
+    }
+    .sub_title{
+        padding-right: 0;
+        padding-left:0;
+        font-size:16px;
+    }
+    #btn-calculate, #btn-show{
+        display:block;
+        width: 100%;
+        margin-bottom:20px;
+    }
+    #calculated{
+        margin-top:120px !important;
+    }
   .div-block-4 {
     width: 100%;
     align-content: center;
