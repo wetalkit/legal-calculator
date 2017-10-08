@@ -333,6 +333,10 @@ body {
     font-weight: 500;
     letter-spacing: 1px;
 }
+.footerbttn:hover{
+    text-decoration: underline;
+    color: #fff;
+}
 
 .w-button-footer {
     /*display: inline-block;*/
@@ -352,6 +356,9 @@ body {
     font-weight: 500;
     text-align: left;
     letter-spacing: 1px;    
+}
+.calculated-detailed{
+    line-height:2.8;
 }
 @media(min-width: 768px) AND (max-width: 1024px){
     #btn-calculate, #btn-show{
@@ -397,6 +404,9 @@ body {
     }
     #calculated{
         margin-top:120px !important;
+    }
+    .form-control{
+        font-size:12px !important;
     }
   .div-block-4 {
     width: 100%;

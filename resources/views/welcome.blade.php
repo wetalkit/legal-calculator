@@ -47,7 +47,7 @@
                                 <button type="submit" class="btn btn-secondary" id="btn-show">Прикажи дополнителни ставки</button>
                             </div>
                         </div>
-                        <div id="calculated" class="col-md-8 ml-md-auto mr-md-auto">
+                        <div id="calculated" class="col-md-8 ml-md-auto mr-md-auto" style="display: none;">
 
                         </div>
                     </div>
@@ -77,6 +77,7 @@
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
         <script>
             $('[name="procedure_id"]').change(function() {
+                $('#calculated').show();
                 var procedureId = $(this).val();
                 var url = "{{url('/procedures')}}/"+procedureId;
                 $.ajax({
