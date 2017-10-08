@@ -41,10 +41,11 @@
                             <div id="calculate">
                                 <button type="submit" class="btn btn-primary" id="btn-calculate">Пресметај</button>
                             </div>
+
+                            {{Form::close()}}
                             <div id="additional-fields">
                                 <button type="submit" class="btn btn-secondary" id="btn-show">Прикажи дополнителни ставки</button>
                             </div>
-                            {{Form::close()}}
                         </div>
                         <div id="calculated" class="col-md-8 ml-md-auto mr-md-auto">
 
@@ -84,6 +85,7 @@
                     dataType: 'json',
                     success: function(data, textStatus, jqXHR) {
                         $('#calculate').fadeIn(500);
+                        $('#additional-fields').fadeIn(500);
                         var items = data.items;
                         var n = items.length;
                         var html = '';
@@ -91,7 +93,7 @@
                             if(i == 0){
                                 html += '<div class="form-group mandatory">';
                             }else{
-                                html += '<div class="form-group">';
+                                html += '<div class="form-group secondary">';
                             }
                             html += '<label for="'+items[i].var+'">'+items[i].name+'</label>';
                             html += '<span class="info-icon" title="'+items[i].comment+'"></span>';
@@ -117,7 +119,6 @@
                 });
             });
             $('#procedure_form').submit(function() {
-                $('#additional-fields').fadeIn(500);
                 $.ajax({
                     type: 'POST',
                     url: '{{url("/calculate")}}',
@@ -144,9 +145,15 @@
                 });
                 return false;
             });
-            $('#additional-fields').click(function() {
-                $('.form-group').fadeIn(500);
+            $('#btn-show').click(function() {
+                $('#values .secondary').fadeToggle(500);
+
+                var text = $('#btn-show').text();
+                $('#btn-show').text(
+                    text == "Прикажи дополнителни ставки" ? "Сокриј дополнителни ставки" : "Прикажи дополнителни ставки");
+
             });
+
         </script>
     </body>
 </html>
