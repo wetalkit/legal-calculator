@@ -11,14 +11,14 @@
 |
 */
 
-Route::resource('procedures', 'ProceduresController');
-
-Route::get('/', function () {
-	return view('welcome');
-});
+Route::resource('/', 'WelcomeController')->only(['index']);
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/admin', 'AdminController@index')->name('admin');
-Route::resource('procedure', 'ProcedureController');
+Route::resource('admin/procedure', 'AdminProceduresController');
+Route::get('admin/getProcedureItems', 'AdminProceduresController@getProcedureItems')->name('get_procedure_items');
+
+Route::any('calculate', 'ProceduresController@calculate');
+Route::resource('procedures', 'ProceduresController')->only(['index', 'show']);

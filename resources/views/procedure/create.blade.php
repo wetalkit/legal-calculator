@@ -3,34 +3,24 @@
 @section('content')
 <div class="container-fluid">
     <div class="row">
-        <div class="col-md-8 col-md-offset-2">
+        <div class="col-md-10 col-md-offset-1">
             <div class="panel panel-default">
-                <div class="panel-heading">Create Procedure</div>
-
+                <div class="panel-heading">Додади процедура</div>
                 <div class="panel-body">
-                <a href="{{ route('procedure.index') }}" class="btn btn-success">Back</a>
+                    @include('procedure._status_messages')
+                    <div class="col-xs-12">
+                        {{ Form::open(array('url' => 'admin/procedure')) }}
 
-                <div class="col-xs-12">
+                            @include('procedure._table')
 
-                    {{ Form::open(array('url' => 'procedure')) }}
+                            {{ Form::submit('Зачувај', array('class' => 'btn btn-primary pull-right')) }}
+                            <a href="{{url('admin/procedure')}}" class="btn btn-default pull-right">Откажи</a>
 
-                        <div class="form-group">
-                            {{ Form::label('name', 'Name') }}
-                            {{ Form::text('name', Input::old('name'), array('class' => 'form-control')) }}
-                            @if ($errors->has('name'))
-                                <span class="help-block">
-                                        <strong>{{ $errors->first('name') }}</strong>
-                                    </span>
-                            @endif
-                        </div>
-
-                        {{ Form::submit('Create', array('class' => 'btn btn-primary')) }}
-
-                    {{ Form::close() }}
+                        {{ Form::close() }}
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-
 </div>
 @endsection

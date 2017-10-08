@@ -1,0 +1,53 @@
+.navbar.bg-primary {
+    background-color: #3F51B5 !important;
+}
+.navbar.bg-primary .navbar-brand {
+    color: white;
+}
+body {
+    padding: 80px 20px;
+}
+body label, body p, body h1, body h2, body h3, body .form-control {
+    color: #666;
+    font-weight: 300;
+}
+body h3 {
+    font-size: 22px;
+    padding: 10px 0
+}
+.btn.btn-primary, .btn.btn-secondary{
+    display: inline-block;
+    float:right;
+    margin-left:10px;
+    background-color:#fff;
+    border: 1px solid #FF4081;
+    color: #FF4081;
+    cursor: pointer;
+}
+.btn.btn-primary:hover, .btn.btn-secondary:hover {
+    background-color: #FF4081;
+    border: 1px solid #FF4081;
+    color: #fff;
+}
+#calculate, #additional-fields {
+    display: none;
+    text-align: right;
+}
+#calculated{
+    margin-top:100px;
+}
+.calculated-detailed p {
+    padding-left: 30px;
+}
+.info-icon {
+    cursor: pointer;
+    background-image: url(/images/info.png);
+    width: 15px;
+    height: 15px;
+    background-size: cover;
+    display: inline-block;
+    margin-left: 10px;
+    transform: translateY(20%);
+    -webkit-transform: translateY(20%);
+    -ms-transform: translateY(20%);
+}
