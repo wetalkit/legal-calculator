@@ -353,8 +353,14 @@ body {
     text-align: left;
     letter-spacing: 1px;    
 }
-
-@media (max-width: 479px) {
+@media(min-width: 768px) AND (max-width: 1024px){
+    #calculate, #additional-fields{
+        display:block;
+        float:none;
+        widht: 100%;
+    }
+}
+@media (max-width: 768px) {
   .presmetka {
     display: block;
     margin-right: 10px;
