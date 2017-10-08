@@ -8,32 +8,67 @@
         <title>Правен Калкулатор</title>
 
         <!-- Fonts -->
+        <link rel="stylesheet" href="/css/style.css" type="text/css">
         <link rel="stylesheet" href="/css/main.css" type="text/css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css?family=Exo+2:200" rel="stylesheet">
     </head>
     <body>
-        <nav class="navbar navbar-light bg-primary fixed-top">
-            <a class="navbar-brand" href="#">
-                Правен Калкулатор
-            </a>
-        </nav>
-        <div class="content">
-           <div class="col-md-8 ml-md-auto mr-md-auto">
-                {{Form::open(['id' => 'procedure_form'])}}
-                <div class="form-group">
-                    {!! Form::label('procedure_id', 'Услуга') !!}
-                    {!! Form::select('procedure_id', $procedures, null, ['class' => 'form-control', 'placeholder' => 'Одберете услуга']) !!}
-                </div>
-                <div id="values"></div>
-                <div id="calculate">
-                   <button type="submit" class="btn btn-primary" id="btn-calculate">Пресметај</button>
-                </div>
-                {{Form::close()}}
-           </div>
-           <div id="calculated" class="col-md-8 ml-md-auto mr-md-auto">
-               
-           </div>
+    <div class="hero-container fixed-top">
+        <div class="header">
+            <div class="div-block-logo">
+                <img src="images/logo.png" width="250" alt="praven kalkulator na troshoci" class="logopad">
+            </div>
+            <div class="div-block menu"></div>
         </div>
+    </div>
+
+        <div class="wrapper">
+            <div class="content">
+                <h1 class="heading">ПРЕСМЕТКА НА ТРОШОЦИ ЗА ПРАВНИ ПОСТАПКИ</h1>
+                <h2 class="sub_title">Нотарски и адвокатски тарифи, закон за судски такси, тарифа на катастар и останати <br> тарифи кои што ви се комплексни за толкување</h2>
+
+                <!-----------PRESMETKA----------->
+                <div class="presmetka">
+                    <div class="content">
+                        <div class="col-md-8 ml-md-auto mr-md-auto">
+                            {{Form::open(['id' => 'procedure_form'])}}
+                            <div class="form-group">
+                                {!! Form::label('procedure_id', 'Услуга') !!}
+                                {!! Form::select('procedure_id', $procedures, null, ['class' => 'form-control', 'placeholder' => 'Одберете услуга']) !!}
+                            </div>
+                            <div id="values"></div>
+                            <div id="calculate">
+                                <button type="submit" class="btn btn-primary" id="btn-calculate">Пресметај</button>
+                            </div>
+                            <div id="additional-fields">
+                                <button type="submit" class="btn btn-secondary" id="btn-show">Прикажи дополнителни ставки</button>
+                            </div>
+                            {{Form::close()}}
+                        </div>
+                        <div id="calculated" class="col-md-8 ml-md-auto mr-md-auto">
+
+                        </div>
+                    </div>
+                </div>
+                <!-----------END-PRESMETKA----------->
+
+                <!-----------FOOTER----------->
+                <footer>
+                    <div class="line"></div>
+                    <div class="section-2">
+                        <div class="div-block-7">
+                            <div class="text-block-2">
+                                Со ❤ од WeTalkIT и Skopje Legal Hackers
+                            </div></div>
+                        <a href="#" class="footerbttn w-button-footer">За Нас</a>
+                        <a href="#" class="footerbttn w-button-footer">Водич</a>
+                        <a href="#" class="footerbttn w-button-footer">Пријави Баг</a>
+                    </div>
+
+            </div>
+        </div>
+    
         <script src="//code.jquery.com/jquery-3.2.1.min.js"
             integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
             crossorigin="anonymous"></script>
@@ -48,12 +83,16 @@
                     url: url,
                     dataType: 'json',
                     success: function(data, textStatus, jqXHR) {
-                        $('#calculate').show();
+                        $('#calculate').fadeIn(500);
                         var items = data.items;
                         var n = items.length;
                         var html = '';
                         for(var i = 0; i < n; i++) {
-                            html += '<div class="form-group">';
+                            if(i == 0){
+                                html += '<div class="form-group mandatory">';
+                            }else{
+                                html += '<div class="form-group">';
+                            }
                             html += '<label for="'+items[i].var+'">'+items[i].name+'</label>';
                             html += '<span class="info-icon" title="'+items[i].comment+'"></span>';
                             var value = items[i].is_mandatory == 1 ? '' : items[i].attributes.placeholder;
@@ -72,10 +111,13 @@
                             html += '</div>';
                         }
                         $('#values').html(html);
+                        $('#values .form-group').hide();
+                        $('.mandatory').fadeIn(500);
                     }
                 });
             });
             $('#procedure_form').submit(function() {
+                $('#additional-fields').fadeIn(500);
                 $.ajax({
                     type: 'POST',
                     url: '{{url("/calculate")}}',
@@ -101,6 +143,9 @@
                     }
                 });
                 return false;
+            });
+            $('#additional-fields').click(function() {
+                $('.form-group').fadeIn(500);
             });
         </script>
     </body>

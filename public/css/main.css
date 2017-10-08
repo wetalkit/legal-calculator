@@ -15,19 +15,26 @@ body h3 {
     font-size: 22px;
     padding: 10px 0
 }
-.btn.btn-primary {
-    background-color: #FF4081;
+.btn.btn-primary, .btn.btn-secondary{
+    display: inline-block;
+    float:right;
+    margin-left:10px;
+    background-color:#fff;
     border: 1px solid #FF4081;
-    color: white;
+    color: #FF4081;
     cursor: pointer;
 }
-.btn.btn-primary:hover {
-    background-color: #303F9F;
-    border: 1px solid #303F9F;
+.btn.btn-primary:hover, .btn.btn-secondary:hover {
+    background-color: #FF4081;
+    border: 1px solid #FF4081;
+    color: #fff;
 }
-#calculate {
+#calculate, #additional-fields {
     display: none;
     text-align: right;
+}
+#calculated{
+    margin-top:100px;
 }
 .calculated-detailed p {
     padding-left: 30px;
