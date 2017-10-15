@@ -16,6 +16,14 @@ body h3 {
     padding: 10px 0
 }
 
+a[href] {
+    color: #3F51B5;
+}
+
+a[href]:hover {
+    color: #303F9F;
+}
+
 .heading, .sub_title {
     text-align: center;
 }
