@@ -28,7 +28,7 @@ body {
   font-size: 12px;
   font-family: 'Exo 2', sans-serif;
   line-height: 30px;
-  text-align: center;
+  text-align: left;
 }
 
 .hero-container {
@@ -49,7 +49,7 @@ body {
     align-items: flex-start;
     background-color: white;
     box-shadow: 0 3px 13px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
-    padding: 20px 11%;
+    padding: 10px 11%;
     -webkit-box-pack: justify;
     margin-right: -8px;
     margin-left: -13px;
@@ -90,10 +90,6 @@ body {
   width: 50%;
 }
 
-.logopad {
-    padding-left: 0px;
-}
-
 .div-block-logo {
   display: -webkit-box;
   display: -webkit-flex;
@@ -121,6 +117,10 @@ body {
   margin-right:55rem !important;
 }
 
+.logopad {
+  height: 50px;
+}
+
 .wrapper {
   font-family: 'Exo 2', sans-serif;
   display: block;
@@ -133,7 +133,7 @@ body {
 }
 
 .heading {
-  padding-top: 70px;
+  padding-top: 40px;
   padding-right: 20px;
   padding-left: 20px;
   font-family: 'Exo 2', sans-serif;
@@ -357,9 +357,7 @@ body {
     text-align: left;
     letter-spacing: 1px;    
 }
-.calculated-detailed{
-    line-height:2.8;
-}
+
 @media(min-width: 768px) AND (max-width: 1024px){
     #btn-calculate, #btn-show{
         display:block;
