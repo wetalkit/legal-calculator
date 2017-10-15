@@ -83,9 +83,11 @@
                         var items = data.items;
                         var n = items.length;
                         var html = '';
+                        var advanced_shown = false;
                         for(var i = 0; i < n; i++) {
-                            if(items[i].is_mandatory == 0 && $('#advanced-filter').length <= 0) {
+                            if(items[i].is_mandatory == 0 && !advanced_shown) {
                                 html += '<a id="advanced-filter">Прикажи дополнителни ставки</a><div class="secondary-items">';
+                                advanced_shown = true;
                             }
                             if(i == 0){
                                 html += '<div class="form-group mandatory">';

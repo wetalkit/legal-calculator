@@ -318,7 +318,6 @@ body {
 }
 
 .footerbttn {
-    display: block;
     margin-left: -16px;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -339,7 +338,7 @@ body {
 }
 
 .w-button-footer {
-    /*display: inline-block;*/
+    display: inline-block;
     padding: 9px 15px;
     color: white;
     line-height: inherit;
@@ -371,7 +370,6 @@ body {
         display: block;
         margin-right: 30px;
         margin-left: 30px;
-
     }
 }
 @media (max-width: 768px) {
@@ -389,11 +387,13 @@ body {
         padding-right:0;
         padding-left:0;
         font-size:26px;
+        padding-top: 10px;
     }
     .sub_title{
         padding-right: 0;
         padding-left:0;
         font-size:16px;
+        line-height: 20px;
     }
     #btn-calculate, #btn-show{
         display:block;
@@ -429,6 +429,7 @@ body {
   }
   .section-2 {
     display: block;
+    text-align: center;
   }
   .text-block-2 {
     position: absolute;
