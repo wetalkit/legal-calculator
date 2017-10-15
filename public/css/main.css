@@ -86,8 +86,8 @@ a[href]:hover {
     margin-bottom: 0px;
     font-style: italic;
 }
-.static .content {
-    padding: 0 50px;
+.static .presmetka .content {
+    padding: 0 30px;
 } 
 .info-icon {
     cursor: pointer;
