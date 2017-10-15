@@ -11,7 +11,9 @@
 |
 */
 
-Route::resource('/', 'WelcomeController')->only(['index']);
+Route::get('/', 'WelcomeController@index');
+Route::get('/about', 'WelcomeController@about');
+Route::get('/report-bug', 'WelcomeController@reportBug');
 
 Auth::routes();
 

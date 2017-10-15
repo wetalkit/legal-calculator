@@ -73,6 +73,14 @@ body h3 {
     color: #222;
     font-weight: 900;
 }
+.disclaimer {
+    font-size: 13px;
+    margin-bottom: 0px;
+    font-style: italic;
+}
+.static .content {
+    padding: 0 50px;
+} 
 .info-icon {
     cursor: pointer;
     position: relative;

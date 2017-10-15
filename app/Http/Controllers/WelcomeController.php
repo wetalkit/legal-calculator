@@ -12,4 +12,16 @@ class WelcomeController extends Controller
         $procedures = Procedure::all()->pluck('name', 'id');
         return view('welcome', compact('procedures'));
     }
+
+    public function about()
+    {
+        $bodyClass = 'static';
+        return view('about', compact('bodyClass'));
+    }
+
+    public function reportBug()
+    {
+        $bodyClass = 'static';
+        return view('report_bug', compact('bodyClass'));        
+    }
 }
