@@ -6,12 +6,13 @@
 <div class="presmetka">
     <div class="content">
         <h4>Skopje Legal Hackers</h4>
-        <p>Skopje Legal Hackers is the Macedonian chapter of Legal Hackers - a global movement of lawyers, policymakers, technologists, and academics who explore and develop creative solutions to some of the most pressing issues at the intersection of law and technology. Through local meetups, hackathons, and workshops, Legal Hackers spot issues and opportunities where technology can improve and inform the practice of law and where law, legal practice, and policy can adapt to rapidly changing technology.</p>
- 
-        <p>We are explorers. We are doers. We are Legal Hackers.</p>
+        <p>Skopje Legal Hackers е Македонското поглавје на глобалното движење на Legal Hackers - кое на едно место обединува адвокати, креатори на политики, програмери, инженери, академици итн, кои истражуваат и развиваат решенија за некои од најактуелните појави кои се наоѓаат на пресекот помеѓу правото и технологијата.</p>
+
+        <p>Низ локални средби, хакатони и работилници Legal Hackers наоѓаат можности преку кои технологијата ќе ја подобри имплементацијата на правото, како и начинот на кои правото ќе може да се адаптира на брзите промени во технологијата.</p>
 
         <h4>We Talk IT</h4>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis, recusandae, aut? Harum ea doloremque, cumque nihil voluptatem adipisci voluptates soluta laudantium eos repudiandae alias modi laborum facilis, repellat quae mollitia!</p>
+        <p>WeTalkIT е непрофитна и волонтерска заедница, составена од девелопери. Aктивностите на заедницата се структурирани во 4 столбови, меѓу кои, промовирање и поддршка, развој на кариерни можности, споделување на знаења и личен напредок на девелопери во Македонија, како и креирање и имплементирање на проекти кои што се од корист за граѓаните на Македонија.</p>
+        <p>Повеќе за организацијата и активностите <a href="https://github.com/wetalkit/community">тука</a>.</p>
     </div>
 </div>
 @endsection

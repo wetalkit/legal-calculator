@@ -17,7 +17,9 @@
         <div class="hero-container fixed-top">
             <div class="header">
                 <div class="div-block-logo">
-                    <img src="images/logo.png" alt="Правен калкулатор на трошоци" class="logopad">
+                    <a href="/">
+                        <img src="images/logo.png" alt="Правен калкулатор на трошоци" class="logopad">
+                    </a>
                 </div>
                 <div class="div-block menu"></div>
             </div>
