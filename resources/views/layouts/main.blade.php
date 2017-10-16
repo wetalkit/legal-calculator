@@ -32,7 +32,7 @@
                     <div class="section-2">
                         <div class="div-block-7">
                             <div class="text-block-2">
-                                Со ❤ од <a href="http://wetalkit.xyz">WeTalkIT</a> и Skopje Legal Hackers
+                                Со ❤ од <a href="http://wetalkit.xyz" target="_blank">WeTalkIT</a> и <a href="https://www.facebook.com/skopjelegalhackers" target="_blank">Skopje Legal Hackers</a>
                             </div></div>
                         <a href="/about" class="footerbttn w-button-footer">За Нас</a>
                         <a href="/Регистар-на-правни-поими.pdf" class="footerbttn w-button-footer">Водич</a>
