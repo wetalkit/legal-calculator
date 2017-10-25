@@ -12,6 +12,7 @@
         <link rel="stylesheet" href="/css/main.css" type="text/css">
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
         <link href="https://fonts.googleapis.com/css?family=Exo+2:200" rel="stylesheet">
+        <link rel="icon" href="/images/favicon.png" type="image/x-icon"/>
     </head>
     <body class="{{ isset($bodyClass) ? $bodyClass : '' }}">
         <div class="hero-container fixed-top">
