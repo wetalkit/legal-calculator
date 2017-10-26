@@ -4,6 +4,9 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta property="og:title" content="Правен Калкулатор" />
+        <meta property="og:image" content="{{url('/images/social.jpg')}}" />
+        <meta property="og:description" content="Пресметка на трошоци за правни постапки: нотарски и адвокатски тарифи, закон за судски такси, тарифа на катастар и останати тарифи кои што ви се комплексни за толкување." />
 
         <title>Правен Калкулатор</title>
 
@@ -13,9 +16,6 @@
         <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
         <link href="https://fonts.googleapis.com/css?family=Exo+2:200" rel="stylesheet">
         <link rel="icon" href="/images/favicon.png" type="image/x-icon"/>
-        <meta property="og:title" content="Правен Калкулатор" />
-        <meta property="og:image" content="{{url('/images/social.jpg')}}" />
-        <meta property="og:description" content="Пресметка на трошоци за правни постапки: нотарски и адвокатски тарифи, закон за судски такси, тарифа на катастар и останати тарифи кои што ви се комплексни за толкување." />
 
     </head>
     <body class="{{ isset($bodyClass) ? $bodyClass : '' }}">
