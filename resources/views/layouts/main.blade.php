@@ -33,6 +33,10 @@
             <div class="content">
                 @yield('content')
                 <footer>
+                    <div class="appstores">
+                        <a href="https://play.google.com/store/apps/details?id=mk.wetalkit.legalcalculator"><img src="images/android.png" class="image"></a>
+                        <a href="https://itunes.apple.com/us/app/%D0%BF%D1%80%D0%B0%D0%B2%D0%B5%D0%BD-%D0%BA%D0%B0%D0%BB%D0%BA%D1%83%D0%BB%D0%B0%D1%82%D0%BE%D1%80/id1298961523?mt=8"><img src="images/ios.png"></a>
+                    </div>
                     <div class="line"></div>
                     <div class="section-2">
                         <div class="div-block-7">
