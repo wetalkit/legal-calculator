@@ -179,6 +179,7 @@ body {
     -ms-flex-pack: center;
     justify-content: center;
     padding-top: 70px; 
+    text-align: center;
 }
 
 .image {
