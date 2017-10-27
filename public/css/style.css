@@ -169,6 +169,32 @@ body {
     box-shadow: 5px 5px 24px -7px rgba(0, 0, 0, .81);
 }
 
+.appstores {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    padding-top: 70px; 
+}
+
+.image {
+    -webkit-align-self: stretch;
+    -ms-flex-item-align: stretch;
+    align-self: stretch;
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 auto;
+    -ms-flex: 0 auto;
+    flex: 0 auto;
+    max-width: 100%;
+    vertical-align: middle;
+    display: inline-block;
+    border: 0;
+}
+
 .dropdown {
     display: block;
     width: 30%;
@@ -296,7 +322,7 @@ body {
 }
 
 .line {
-    margin-top: 80px;
+    margin-top: 20px;
     border-top: 2px solid #fff;
 }
 
@@ -388,6 +414,20 @@ footer a.w-button-footer {
     margin-left: 0;
     
   }
+    
+  .appstores {
+    padding-top: 50px; 
+    display: block;
+    clear: left;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-box-pack: center;
+    justify-content: center;    
+  }  
+    
     .wrapper{
         margin-right:0;
         margin-left:0;
