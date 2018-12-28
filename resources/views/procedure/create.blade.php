@@ -13,7 +13,7 @@
 
                             @include('procedure._table')
 
-                            {{ Form::submit('Зачувај', array('class' => 'btn btn-primary pull-right')) }}
+                            {{ Form::button('Зачувај', array('class' => 'btn btn-primary pull-right', 'id' => 'submit_btn')) }}
                             <a href="{{url('admin/procedure')}}" class="btn btn-default pull-right">Откажи</a>
 
                         {{ Form::close() }}

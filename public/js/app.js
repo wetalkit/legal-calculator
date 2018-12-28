@@ -159,4 +159,20 @@ $('#add_formula').click(function() {
     })
     
     return false;
-})
+});
+
+$('#submit_btn').click(function () {
+    for(var j=0; j< $('[name^="options"]').length; j++) {
+        if($('[name="options['+j+']"]').val()) {
+            var options = $('[name="options['+j+']"]').val().split("\n");
+            for(var i=0; i< options.length; i++) {
+                var rule = options[i].split(',');
+                if(rule.length != 2) {
+                    alert('Грешка во дефинирањето на понудените опции.'+"\n"+'Форматот ' + options[i] + ' не е точен. Дефинираните опции треба да бидат во формат "ВРЕДНОСТ,ПРИКАЗ".'+"\n"+'Ве молиме поправете ја грешката и обидете се повторно.');
+                    return false;
+                }
+            }
+        }
+    }
+    $('form').submit();
+});
