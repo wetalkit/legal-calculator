@@ -16,7 +16,7 @@
 
                             {{ Form::input('hidden', 'name', $procedure->id, array('id' => 'procedure-id', 'data-url' => route('get_procedure_items'))) }}
                             
-                            {{ Form::submit('Зачувај', array('class' => 'btn btn-primary pull-right')) }}
+                            {{ Form::submit('Зачувај', array('class' => 'btn btn-primary pull-right', 'id' => 'submit_btn')) }}
                             <a href="{{url('admin/procedure')}}" class="btn btn-default pull-right">Откажи</a>
 
                             {{ Form::close() }}
